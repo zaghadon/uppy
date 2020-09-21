@@ -45,7 +45,8 @@ const tusDefaultOptions = {
   storeFingerprintForResuming: true,
   removeFingerprintOnSuccess: false,
   uploadLengthDeferred: false,
-  uploadDataDuringCreation: false
+  uploadDataDuringCreation: false,
+  withCredentials: false
 }
 
 /**
@@ -238,6 +239,14 @@ module.exports = class Tus extends Plugin {
         }
 
         resolve(upload)
+      }
+
+      // Pass the `withCredentials` option through to the actual request
+      if (opts.withCredentials) {
+        uploadOptions.onBeforeRequest = (req) => {
+          const xhr = req.getUnderlyingObject()
+          xhr.withCredentials = true
+        }
       }
 
       const copyProp = (obj, srcProp, destProp) => {
