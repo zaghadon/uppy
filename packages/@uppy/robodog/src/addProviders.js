@@ -8,11 +8,11 @@ const remoteProviders = {
   instagram: require('@uppy/instagram'),
   facebook: require('@uppy/facebook'),
   onedrive: require('@uppy/onedrive'),
-  url: require('@uppy/url')
+  url: require('@uppy/url'),
 }
 
 const localProviders = {
-  webcam: require('@uppy/webcam')
+  webcam: require('@uppy/webcam'),
 }
 
 const remoteProviderOptionNames = [
@@ -21,12 +21,12 @@ const remoteProviderOptionNames = [
   'companionHeaders',
   'target',
   // Backwards compatibility: new code should use `companionHeaders`
-  'serverHeaders'
+  'serverHeaders',
 ]
 
 // No shared options.
 const localProviderOptionNames = [
-  'target'
+  'target',
 ]
 
 function addRemoteProvider (uppy, name, opts) {
@@ -34,7 +34,7 @@ function addRemoteProvider (uppy, name, opts) {
   const providerOptions = {
     // Default to the :tl: Companion servers.
     companionUrl: Transloadit.COMPANION,
-    companionAllowedHosts: Transloadit.COMPANION_PATTERN
+    companionAllowedHosts: Transloadit.COMPANION_PATTERN,
   }
 
   remoteProviderOptionNames.forEach((name) => {
@@ -51,7 +51,7 @@ function addRemoteProvider (uppy, name, opts) {
       const { key } = opts.params.auth
       overrides.companionKeysParams = {
         key,
-        credentialsName: overrides.credentialsName
+        credentialsName: overrides.credentialsName,
       }
       delete overrides.credentialsName
     }
@@ -86,7 +86,7 @@ function addProviders (uppy, names, opts = {}) {
     } else {
       const validNames = [
         ...Object.keys(remoteProviders),
-        ...Object.keys(localProviders)
+        ...Object.keys(localProviders),
       ]
       const expectedNameString = validNames
         .sort()
