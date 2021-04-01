@@ -15,12 +15,10 @@ jobs:
         uses: actions/setup-node@v2-beta
         with:
           node-version: ${{matrix.node-version}}
-      - name: Install npm 7
-        run: npm install --global npm@7
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
       - name: Run tests
-        run: npm run test:unit
+        run: yarn run test:unit
 
   lint_js:
     name: Lint JavaScript
@@ -32,12 +30,10 @@ jobs:
         uses: actions/setup-node@v2-beta
         with:
           node-version: 14.x
-      - name: Install npm 7
-        run: npm install --global npm@7
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
       - name: Run linter
-        run: npm run lint
+        run: yarn run lint
 
   lint_md:
     name: Lint Markdown
@@ -49,12 +45,10 @@ jobs:
         uses: actions/setup-node@v2-beta
         with:
           node-version: 14.x
-      - name: Install npm 7
-        run: npm install --global npm@7
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
       - name: Run linter
-        run: npm run lint:markdown
+        run: yarn run lint:markdown
 
   types:
     name: Type tests
@@ -66,17 +60,15 @@ jobs:
         uses: actions/setup-node@v2-beta
         with:
           node-version: 14.x
-      - name: Install npm 7
-        run: npm install --global npm@7
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
       - name: Run type tests
-        run: npm run lint:markdown
+        run: yarn run lint:markdown
         # Need to do a bunch of work to generate the locale typings 🙃
       - name: Prepare type declarations
         run: |
-          npm run build:lib
-          npm run build:companion
-          npm run build:locale-pack
+          yarn run build:lib
+          yarn run build:companion
+          yarn run build:locale-pack
       - name: Run type tests
-        run: npm run test:type
+        run: yarn run test:type

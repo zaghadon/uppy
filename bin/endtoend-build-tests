@@ -26,8 +26,8 @@ done
 
 # Speeecial tests that need custom builds.
 pushd "${__root}/test/endtoend/create-react-app"
-  npm install
-  REACT_APP_ON_TRAVIS="${TRAVIS:-}" npm run build
+  yarn install
+  REACT_APP_ON_TRAVIS="${TRAVIS:-}" yarn run build
 popd
 pushd "${__root}/test/endtoend/typescript"
   mkdir -p dist

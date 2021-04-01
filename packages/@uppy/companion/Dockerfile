@@ -9,15 +9,15 @@ WORKDIR /app
 ADD package.json package-*.json yarn.* /tmp/
 RUN cd /tmp && apk --update add  --virtual native-dep \
   make gcc g++ python libgcc libstdc++ git && \
-  npm install -g npm@7.7.6 && \
-  npm install && \
-  npm ls && \
+  npm install -g yarn@1.x && \
+  yarn install && \
+  yarn ls && \
   apk del native-dep
 RUN mkdir -p /app && cd /app && ln -nfs /tmp/node_modules
 RUN apk add bash
 COPY . /app
 ENV PATH "${PATH}:/app/node_modules/.bin"
-RUN npm run build
+RUN yarn run build
 
 FROM node:14.15.3-alpine
 

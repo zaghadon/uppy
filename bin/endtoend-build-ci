@@ -14,7 +14,7 @@ if [ -z "${CI:-}" ]; then
   echo "!! Running CI-style end-to-end tests but CI environment variable is not set"
   echo "It is generally ill-advised to run the full end-to-end suite on your local machine."
   echo "You are probably looking for this instead:"
-  echo "  npm run test:endtoend:local"
+  echo "  yarn run test:endtoend:local"
   echo ""
   echo "Hit Ctrl+C to stop or Enter if you REALLY DO want to run the full thing."
   read
@@ -39,7 +39,7 @@ cleanup() {
 }
 function on_exit() {
   # revert to public registry
-  npm set registry https://registry.npmjs.org
+  yarn config set registry https://registry.npmjs.org
   cleanup
 }
 trap on_exit EXIT
@@ -54,7 +54,7 @@ cleanup
 # Initialise verdaccio storage path.
 mkdir -p "${__root}/test/endtoend/tmp/verdaccio"
 
-npm run build
+yarn run build
 
 # https://github.com/facebook/create-react-app/pull/4626
 (cd && npm-auth-to-token -u user -p password -e user@example.com -r "$VERDACCIO_REGISTRY")
@@ -74,15 +74,16 @@ ENDTOEND=1 lerna publish from-git --yes \
   --registry="$VERDACCIO_REGISTRY" \
   --no-verify-access
 
-# install all packages to the endtoend folder
+# install all packages to the endtoend folder, so that @uppy/* imports in test files
+# resolve to these packages
 # (Don't use the npm cache, don't generate a package-lock, don't save dependencies to any package.json)
 pushd "${__root}/test/endtoend"
   PKG_VERSIONS="$(echo uppy $PACKAGES | sed -e 's/\S\+\b/&@latest/g')"
   echo '{}' > package.json # temp pkg.json to make sure npm installs deps in this folder
-  npm install \
-    --prefer-online \
+  yarn install \
+    --no-cache \
+    --no-lock-file \
     --registry "$VERDACCIO_REGISTRY" \
-    --no-package-lock \
     --no-save \
     $PKG_VERSIONS
   rm package.json
