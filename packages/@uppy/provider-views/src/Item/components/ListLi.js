@@ -32,6 +32,7 @@ module.exports = (props) => {
           role="option"
           aria-label={getAriaLabelOfCheckbox(props)}
           aria-selected={props.isChecked}
+          aria-checked={props.isChecked}
           aria-disabled={props.isDisabled}
           disabled={props.isDisabled}
           data-uppy-super-focusable
