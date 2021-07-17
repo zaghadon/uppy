@@ -8,10 +8,10 @@ category: "Contributing"
 
 There are already a few useful Uppy plugins out there, but there might come a time when you will want to build your own. Plugins can hook into the upload process or render a custom UI, typically to:
 
- - Render some custom UI element, e.g., [StatusBar](/docs/statusbar) or [Dashboard](/docs/dashboard).
- - Do the actual uploading, e.g., [XHRUpload](/docs/xhrupload) or [Tus](/docs/tus).
- - Do work before the upload, like compressing an image or calling external API.
- - Interact with a third-party service to process uploads correctly, e.g., [Transloadit](/docs/transloadit) or [AwsS3](/docs/aws-s3).
+*   Render some custom UI element, e.g., [StatusBar](/docs/statusbar) or [Dashboard](/docs/dashboard).
+*   Do the actual uploading, e.g., [XHRUpload](/docs/xhrupload) or [Tus](/docs/tus).
+*   Do work before the upload, like compressing an image or calling external API.
+*   Interact with a third-party service to process uploads correctly, e.g., [Transloadit](/docs/transloadit) or [AwsS3](/docs/aws-s3).
 
 See a [full example of a plugin](#Example-of-a-custom-plugin) below.
 
@@ -133,42 +133,43 @@ Preprocessing and postprocessing progress events are plugin-dependent and can re
 
 `progress` is an object with properties:
 
- - `mode` - Either `'determinate'` or `'indeterminate'`.
- - `message` - A message to show to the user. Something like `'Preparing upload...'`, but be more specific if possible.
+*   `mode` - Either `'determinate'` or `'indeterminate'`.
+*   `message` - A message to show to the user. Something like `'Preparing upload...'`, but be more specific if possible.
 
 When `mode` is `'determinate'`, also add the `value` property:
 
- - `value` - A progress value between 0 and 1.
+*   `value` - A progress value between 0 and 1.
 
 ### `upload-progress(progress)`
 
 `progress` is an object with properties:
 
- - `uploader` - The uploader plugin that fired the event (`this`).
- - `id` - The file ID.
- - `bytesTotal` - The full amount of bytes to be uploaded.
- - `bytesUploaded` - The amount of bytes that have been uploaded so far.
+*   `uploader` - The uploader plugin that fired the event (`this`).
+*   `id` - The file ID.
+*   `bytesTotal` - The full amount of bytes to be uploaded.
+*   `bytesUploaded` - The amount of bytes that have been uploaded so far.
 
 ### `postprocess-progress(fileID, progress)`
 
 `progress` is an object with properties:
 
- - `mode` - Either `'determinate'` or `'indeterminate'`.
- - `message` - A message to show to the user. Something like `'Preparing upload...'`, but be more specific if possible.
+*   `mode` - Either `'determinate'` or `'indeterminate'`.
+*   `message` - A message to show to the user. Something like `'Preparing upload...'`, but be more specific if possible.
 
 When `mode` is `'determinate'`, also add the `value` property:
 
- - `value` - A progress value between 0 and 1.
+*   `value` - A progress value between 0 and 1.
 
- ### `error(err\[, fileID\])
+### \`error(err\[, fileID])
 
- `err` is an `Error` object. `fileID` can optionally which file fails to inform the user.
+`err` is an `Error` object. `fileID` can optionally which file fails to inform the user.
 
 ## UI Plugins
 
 UI Plugins can be used to show a user interface. Uppy plugins use [preact](https://preactjs.com) v8.2.9 for rendering. preact is a very small React-like library that works really well with Uppy's state architecture. Uppy implements preact rendering in the `mount(target)` and `update()` plugin methods, so if you want to write a custom UI plugin using some other library, you can override those methods.
 
 > **Only** `preact@8.2.9` can be used for Uppy plugins. In Uppy 2.0, the restriction will be changed to a newer range of preact versions. For now, specify the dependency with a fixed version number:
+>
 > ```json
 > "dependencies": {
 >   "preact": "8.2.9"
@@ -197,6 +198,7 @@ Since Uppy uses Preact and not React, the default Babel configuration for JSX el
 See the Preact [Getting Started Guide](https://preactjs.com/guide/getting-started) for more on Babel and JSX.
 
 <!-- eslint-disable jsdoc/check-tag-names -->
+
 ```js
 /** @jsx h */
 import { UIPlugin } from '@uppy/core'
@@ -249,6 +251,7 @@ this.i18nArray = this.translator.translateArray.bind(this.translator)
 Below is a full example of a [simple plugin](https://github.com/arturi/uppy-plugin-image-compressor) that compresses images before uploading them. You can replace `compressorjs` method with any other work you need to do. This works especially well for async stuff, like calling an external API.
 
 <!-- eslint-disable consistent-return -->
+
 ```js
 import { UIPlugin } from '@uppy/core'
 import Translator from '@uppy/utils/lib/Translator'
