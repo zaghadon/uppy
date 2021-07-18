@@ -17,14 +17,23 @@ exports.config = {
   logLevel: 'warn',
 
   capabilities: [
-    { browserName: 'firefox', browserVersion: 'latest', platformName: 'Windows 10' },
-    { browserName: 'firefox', browserVersion: 'latest-1', platformName: 'Windows 10' },
-    { browserName: 'chrome', browserVersion: 'latest', platformName: 'Windows 10' },
-    { browserName: 'chrome', browserVersion: 'latest-1', platformName: 'Windows 10' },
-    { browserName: 'safari', browserVersion: 'latest', platformName: 'macOS 11' },
-    { browserName: 'safari', browserVersion: '13.1', platformName: 'macOS 10.15' },
-    { browserName: 'Safari', 'appium:deviceName': 'iPhone 12 Simulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '14.3', platformName:'iOS' },
-    // { browserName: 'Chrome', 'appium:deviceName': 'Android GoogleAPI Emulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '11.0', platformName: 'Android' },
+    // { browserName: 'firefox', browserVersion: 'latest', platformName: 'Windows 10' },
+    // { browserName: 'firefox', browserVersion: 'latest-1', platformName: 'Windows 10' },
+    // { browserName: 'chrome', browserVersion: 'latest', platformName: 'Windows 10' },
+    // { browserName: 'chrome', browserVersion: 'latest-1', platformName: 'Windows 10' },
+    // { browserName: 'safari', browserVersion: 'latest', platformName: 'macOS 11' },
+    // { browserName: 'safari', browserVersion: '13.1', platformName: 'macOS 10.15' },
+    // { browserName: 'Safari', 'appium:deviceName': 'iPhone 12 Simulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '14.3', platformName:'iOS' },
+    { browserName: 'Chrome', 'appium:deviceName': 'Android GoogleAPI Emulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '11.0', platformName: 'Android' },
+    { browserName: 'Chrome', 'appium:deviceName': 'Android GoogleAPI Emulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '10.0', platformName: 'Android' },
+    { browserName: 'Chrome', 'appium:deviceName': 'Google Pixel 3 GoogleAPI Emulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '11.0', platformName: 'Android' },
+    { browserName: 'Chrome', 'appium:deviceName': 'Google Pixel 3 GoogleAPI Emulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '10.0', platformName: 'Android' },
+    { browserName: 'Chrome', 'appium:deviceName': 'Google Pixel 3a GoogleAPI Emulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '11.0', platformName: 'Android' },
+    { browserName: 'Chrome', 'appium:deviceName': 'Google Pixel 3a GoogleAPI Emulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '10.0', platformName: 'Android' },
+    { browserName: 'Chrome', 'appium:deviceName': 'Google Pixel 3 XL GoogleAPI Emulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '11.0', platformName: 'Android' },
+    { browserName: 'Chrome', 'appium:deviceName': 'Google Pixel 3 XL GoogleAPI Emulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '10.0', platformName: 'Android' },
+    { browserName: 'Chrome', 'appium:deviceName': 'Google Pixel 3a XL GoogleAPI Emulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '11.0', platformName: 'Android' },
+    { browserName: 'Chrome', 'appium:deviceName': 'Google Pixel 3a XL GoogleAPI Emulator', 'appium:deviceOrientation': 'portrait', 'appium:platformVersion': '10.0', platformName: 'Android' },
   ].map(createCapability),
 
   // Patterns to exclude.
@@ -36,7 +45,7 @@ exports.config = {
 
   // If you only want to run your tests until a specific amount of tests have failed use
   // bail (default is 0 - don't bail, run all tests).
-  bail: 3,
+  bail: 0,
 
   // Set a base URL in order to shorten url command calls. If your url parameter starts
   // with "/", then the base url gets prepended.
