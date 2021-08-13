@@ -29,7 +29,7 @@ Install from NPM:
 npm install @uppy/tus
 ```
 
-In the [CDN package](/docs/#With-a-script-tag), it is available on the `Uppy` global object:
+In the [CDN package](/docs/#With-a-script-tag), the plugin class is available on the `Uppy` global object:
 
 ```js
 const { Tus } = Uppy
@@ -47,7 +47,7 @@ Destination URL for your uploads. This should be where your tus.io server is run
 
 ### `headers: {}`
 
-Additional request headers to send to the Tus endpoint when making requests.
+Extra request headers to send to the Tus endpoint when making requests.
 
 ### `chunkSize: Infinity`
 
@@ -77,6 +77,6 @@ Pass an array of field names to limit the metadata fields that will be added to 
 
 ### `limit: 5`
 
-Limit the amount of uploads going on at the same time. Setting this to `0` means there is no limit on concurrent uploads.
+Limit the amount of uploads going on at the same time. Setting this to `0` means no limit on concurrent uploads.
 
 [tus-js-client]: https://github.com/tus/tus-js-client
