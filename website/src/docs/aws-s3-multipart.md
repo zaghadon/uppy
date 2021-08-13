@@ -105,23 +105,23 @@ The default implementation calls out to Companion's S3 signing endpoints.
 
 A function that generates a batch of signed URLs for the specified part numbers. Receives the `file` object from Uppy's state. The `partData` argument is an object with keys:
 
- - `uploadId` - The UploadID of this Multipart upload.
- - `key` - The object key in the S3 bucket.
- - `partNumbers` - An array of indecies of this part in the file (`PartNumber` in S3 terminology). Note that part numbers are _not_ zero-based.
+*   `uploadId` - The UploadID of this Multipart upload.
+*   `key` - The object key in the S3 bucket.
+*   `partNumbers` - An array of indecies of this part in the file (`PartNumber` in S3 terminology). Note that part numbers are _not_ zero-based.
 
 Return a Promise for an object with keys:
 
- - `presignedUrls` - A JavaScript object with the part numbers as keys and the presigned URL for each part as the value. An example of what the return value should look like:
+*   `presignedUrls` - A JavaScript object with the part numbers as keys and the presigned URL for each part as the value. An example of what the return value should look like:
 
-   ```js
-   // for partNumbers [1, 2, 3]
-   return {
-     1: 'https://bucket.region.amazonaws.com/path/to/file.jpg?partNumber=1&...',
-     2: 'https://bucket.region.amazonaws.com/path/to/file.jpg?partNumber=2&...',
-     3: 'https://bucket.region.amazonaws.com/path/to/file.jpg?partNumber=3&...',
-   }
-   ```
- - `headers` - **(Optional)** Custom headers that should be sent to the S3 presigned URL.
+    ```js
+    // for partNumbers [1, 2, 3]
+    return {
+      1: 'https://bucket.region.amazonaws.com/path/to/file.jpg?partNumber=1&...',
+      2: 'https://bucket.region.amazonaws.com/path/to/file.jpg?partNumber=2&...',
+      3: 'https://bucket.region.amazonaws.com/path/to/file.jpg?partNumber=3&...',
+    }
+    ```
+*   `headers` - **(Optional)** Custom headers that should be sent to the S3 presigned URL.
 
 ### `abortMultipartUpload(file, { uploadId, key })`
 

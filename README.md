@@ -163,11 +163,11 @@ We still provide a bundle which should work on IE11, but we are not running test
 
 Here's a list of polyfills you'll need to include to make Uppy work in older browsers, such as IE11:
 
-- [abortcontroller-polyfill](https://github.com/mo/abortcontroller-polyfill)
-- [core-js](https://github.com/zloirock/core-js)
-- [md-gum-polyfill](https://github.com/mozdevs/mediaDevices-getUserMedia-polyfill)
-- [resize-observer-polyfill](https://github.com/que-etc/resize-observer-polyfill)
-- [whatwg-fetch](https://github.com/github/fetch)
+*   [abortcontroller-polyfill](https://github.com/mo/abortcontroller-polyfill)
+*   [core-js](https://github.com/zloirock/core-js)
+*   [md-gum-polyfill](https://github.com/mozdevs/mediaDevices-getUserMedia-polyfill)
+*   [resize-observer-polyfill](https://github.com/que-etc/resize-observer-polyfill)
+*   [whatwg-fetch](https://github.com/github/fetch)
 
 If you're using a bundler, you need import them before Uppy:
 
@@ -258,7 +258,7 @@ Use Uppy in your project? [Let us know](https://github.com/transloadit/uppy/issu
 
 [<img alt="richardwillars" src="https://avatars.githubusercontent.com/u/291004?v=4&s=117" width="117">](https://github.com/richardwillars) |[<img alt="Murderlon" src="https://avatars.githubusercontent.com/u/9060226?v=4&s=117" width="117">](https://github.com/Murderlon) |[<img alt="ajkachnic" src="https://avatars.githubusercontent.com/u/44317699?v=4&s=117" width="117">](https://github.com/ajkachnic) |[<img alt="dependabot[bot]" src="https://avatars.githubusercontent.com/in/29110?v=4&s=117" width="117">](https://github.com/apps/dependabot) |[<img alt="zcallan" src="https://avatars.githubusercontent.com/u/13760738?v=4&s=117" width="117">](https://github.com/zcallan) |[<img alt="tim-kos" src="https://avatars.githubusercontent.com/u/15005?v=4&s=117" width="117">](https://github.com/tim-kos) |
 :---: |:---: |:---: |:---: |:---: |:---: |
-[richardwillars](https://github.com/richardwillars) |[Murderlon](https://github.com/Murderlon) |[ajkachnic](https://github.com/ajkachnic) |[dependabot[bot]](https://github.com/apps/dependabot) |[zcallan](https://github.com/zcallan) |[tim-kos](https://github.com/tim-kos) |
+[richardwillars](https://github.com/richardwillars) |[Murderlon](https://github.com/Murderlon) |[ajkachnic](https://github.com/ajkachnic) |[dependabot\[bot\]](https://github.com/apps/dependabot) |[zcallan](https://github.com/zcallan) |[tim-kos](https://github.com/tim-kos) |
 
 [<img alt="janko" src="https://avatars.githubusercontent.com/u/795488?v=4&s=117" width="117">](https://github.com/janko) |[<img alt="mifi" src="https://avatars.githubusercontent.com/u/402547?v=4&s=117" width="117">](https://github.com/mifi) |[<img alt="wilkoklak" src="https://avatars.githubusercontent.com/u/17553085?v=4&s=117" width="117">](https://github.com/wilkoklak) |[<img alt="oliverpool" src="https://avatars.githubusercontent.com/u/3864879?v=4&s=117" width="117">](https://github.com/oliverpool) |[<img alt="Botz" src="https://avatars.githubusercontent.com/u/2706678?v=4&s=117" width="117">](https://github.com/Botz) |[<img alt="mcallistertyler" src="https://avatars.githubusercontent.com/u/14939210?v=4&s=117" width="117">](https://github.com/mcallistertyler) |
 :---: |:---: |:---: |:---: |:---: |:---: |
